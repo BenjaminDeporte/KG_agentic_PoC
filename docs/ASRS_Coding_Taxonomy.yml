@@ -1,0 +1,332 @@
+# ASRS Coding Taxonomy — machine-readable reference
+# Source: ASRS Coding Form, April 2024 revision (16 pages), extracted 2026-09-22.
+# Structure: section -> field -> allowed_values
+# Field annotations:
+#   cardinality: single (Q1 marker on the form) | multi (Q marker) | free (write-in / fill-in)
+#   Values ending in " (other)" denote a write-in option present on the form.
+# Note: single/multi is inferred from the form's Q1/Q markers; spot-check against
+# an actual CSV export before relying on it programmatically.
+
+# analysis of ASRS_CodingForm.pdf by Vibe (22/098/2026)
+
+time:
+  date:
+    cardinality: free
+    values: [yyyymm]
+  local_time_of_day:
+    cardinality: single
+    values: ["0001-0600", "0601-1200", "1201-1800", "1801-2400"]
+
+place:
+  locale_reference:
+    cardinality: multi
+    values: [airport_id, navaid_id_and_type, intersection_id, atc_facility_id_and_type]
+  state_reference:
+    cardinality: single
+    values: [state]
+  relative_position:
+    cardinality: free
+    values: [radial, distance_nautical_miles]
+  altitude:
+    cardinality: free
+    values: [agl_single_value, msl_single_value]
+
+environment:
+  flight_conditions:
+    cardinality: single
+    values: [VMC, IMC, Mixed, Marginal]
+  weather_elements_visibility:
+    cardinality: multi
+    values: [Cloudy, Fog, Hail, Haze/Smoke, Icing, Rain, Snow, Thunderstorm, Turbulence, Windshear, Other, Visibility_SM]
+  work_environment_factors:
+    cardinality: multi
+    values: [Poor Lighting, Glare, Temperature-Extreme, Excessive Humidity, Excessive Wind (UAS)]
+  light:
+    cardinality: single
+    values: [Dawn, Daylight, Dusk, Night]
+  ceiling:
+    cardinality: free
+    values: [CLR_single_value]
+  rvr:
+    cardinality: free
+    values: [single_value]
+
+aircraft:
+  aircraft_letter_reference:
+    cardinality: multi
+    values: [X, Y, Z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W]
+  atc_advisory:
+    cardinality: multi
+    values: [FSS, Center, CTAF, Ground, Military Facility, Ramp, Tower, TRACON, UNICOM]
+  aircraft_operator:
+    cardinality: multi
+    values: [Air Carrier, Air Taxi, Commercial Operator (UAS), Corporate, Fractional, FBO, Government, Military, Personal, Recreational/Hobbyist (UAS), Other]
+  flight_plan:
+    cardinality: single
+    values: [VFR, IFR, SVFR, DVFR, None]
+  make_model:
+    cardinality: free
+    values: [name]
+  operating_under_far_part:
+    cardinality: multi
+    values: [Part 91, Part 103, Part 107, Part 119, Part 121, Part 125, Part 129, Part 133, Part 135, Part 137, Public Aircraft Operations (UAS), Recreational Operations/Section 44809 (UAS), Other]
+  aircraft_zone:
+    cardinality: free
+    values: [aircraft_zone]
+  crew_size:
+    cardinality: free
+    values: [number_of_crew]
+  mission:
+    cardinality: multi
+    values: [Aerobatics, Agriculture, Ambulance, Banner Tow, Cargo/Freight/Delivery, Communications (UAS), Ferry/Re-Positioning, Observation/Surveillance (UAS), Passenger, Photo Shoot/Video, Personal, Public Safety/Pursuit (UAS), Recreational/Hobbyist (UAS), Refueling, Search & Rescue, Skydiving, Surveying/Mapping (UAS), Tactical, Test Flight/Demonstration, Traffic Watch, Training, Utility/Infrastructure, Other]
+  flight_phase:
+    cardinality: multi
+    values: [Taxi, Parked, Ground/Preflight (UAS), Takeoff/Launch, Initial Climb, Climb, Cruise, Hovering (UAS), Return to Home (UAS), Descent, Initial Approach, Final Approach, Landing, Other]
+  route_in_use:
+    cardinality: multi
+    values: [Direct, Oceanic, VFR Route, Vectors, Visual Approach, None, Airway, STAR, SID, Other]
+  nav_in_use:
+    cardinality: multi
+    values: [FMS/FMC, GPS, INS, Localizer/Glideslope/ILS, NDB, VOR/VORTAC]
+  airspace:
+    cardinality: multi
+    values: [Class A, Class B, Class C, Class D, Class E, Class G, Special Use, TFR]
+  maintenance_status:
+    cardinality: multi
+    values: [Maintenance Deferred Y/N, Records Complete Y/N, Released for Service Y/N, Required/Correct Doc on Board Y/N, Scheduled Maintenance, Unscheduled Maintenance]
+  maintenance_items_involved:
+    cardinality: multi
+    values: [Inspection, Installation, Repair, Testing, Work Cards]
+  cabin_lighting:
+    cardinality: single
+    values: [High, Medium, Low, Off]
+  number_of_seats:
+    cardinality: free
+    values: [number]
+  passengers_on_board:
+    cardinality: free
+    values: [number]
+  crew_size_flight_attendant:
+    cardinality: free
+    values: [number]
+  weight_category_uas:
+    cardinality: single
+    values: [Micro, Small, Medium, Large]
+  configuration_uas:
+    cardinality: single
+    values: [Multi-Rotor, Fixed Wing, Helicopter, Hybrid, Other]
+  number_of_uas_being_controlled_uas:
+    cardinality: free
+    values: [number_of_uas]
+  type_uas:
+    cardinality: single
+    values: [Purchased, Homebuilt/Custom, Other]
+  passenger_capable_uas:
+    cardinality: single
+    values: [Y, N]
+  airspace_authorization_provider_uas:
+    cardinality: single
+    values: [Authorized Third Party, FAA Authorization, Other]
+  airworthiness_certification_uas:
+    cardinality: single
+    values: [Standard, Special, Special Authorization/Section 44807]
+  operating_under_waivers_exemptions_authorizations_uas:
+    cardinality: single
+    values: [Y, N]
+  waivers_exemptions_authorizations_uas:
+    cardinality: multi
+    values: [Blanket COA, Emergency COA, Jurisdictional COA, "91", "107.25", "107.29", "107.31", "107.33", "107.35", "107.37(a)", "107.39", "107.51", "135", Other]
+  flight_operated_as_uas:
+    cardinality: single
+    values: [VLOS, BVLOS, Other]
+  flight_operated_with_visual_observer_uas:
+    cardinality: single
+    values: [Yes, No]
+  control_mode_uas:
+    cardinality: single
+    values: [Autonomous/Fully Automated, Waypoint Flying, Manual Control, Transitioning Between Modes]
+  uas_flying_in_near_over_uas:
+    cardinality: multi
+    values: [Aerial Show/Event, Aircraft/UAS, Airport/Aerodrome/Heliport, Critical Infrastructure, Crowds, Emergency Services, Indoor/Confined Spaces, Moving Vehicles, Natural Disaster, No Drone Zone, Open Space/Field, People/Populated Areas, Private Property, Recreational Club/Fixed Flying Site, Other]
+
+component:
+  component:
+    cardinality: multi
+    values: [aircraft_component]
+  manufacturer:
+    cardinality: multi
+    values: [manufacturer]
+  aircraft_reference:
+    cardinality: multi
+    values: [X, Y, Z, Other]
+  problem:
+    cardinality: multi
+    values: [Design, Failed, Improperly Operated, Malfunctioning]
+
+person:
+  person_number:
+    cardinality: single
+    values: ["1-30"]
+  location_of_person:
+    cardinality: multi
+    values: [Aircraft, Facility, Company, Gate/Ramp/Line, Hangar/Base, Repair Facility, Indoor/Ground Control Station (UAS), Outdoor/Field Station (UAS), Other]
+  location_in_aircraft:
+    cardinality: multi
+    values: [Flight Deck, Cabin, Jumpseat, Crew Rest Area, Door Area, Galley, General Seating Area, Lavatory, Other]
+  reporter_organization:
+    cardinality: multi
+    values: [Air Carrier, Air Taxi, Commercial Operator (UAS), Contracted Service, Corporate, Fractional, FBO, Government, Military, Personal, Recreational/Hobbyist (UAS), Other]
+  asrs_report_number:
+    cardinality: single
+    values: [accession_number]
+  function_flight_crew:
+    cardinality: multi
+    values: [Captain, Check Pilot, First Officer, Flight Engineer/Second Officer, Instructor, Person Manipulating Controls (UAS), Pilot Flying, Pilot Not Flying, Relief Pilot, Remote PIC (UAS), Single Pilot, Trainee, Visual Observer (UAS), Other/Unknown]
+  qualification_flight_crew:
+    cardinality: multi
+    values: [Student, Sport/Recreational, Private, Commercial, Air Transport Pilot (ATP), Remote Pilot (UAS), Public Aircraft Operations (UAS), Flight Instructor, Multiengine, Instrument, Flight Engineer, Rotorcraft, Lighter-Than-Air, Sea, Glider]
+  experience_flight_crew:
+    cardinality: free
+    values: [total_hours, last_90_days, type_hours, total_uas, last_90_days_uas, type_uas]
+  function_air_traffic_control:
+    cardinality: multi
+    values: [Approach, Coordinator, Departure, Enroute, Flight Data/Clearance Delivery, Flight Service, Ground, Handoff/Assist, Instructor, Trainee, Local, Oceanic, Supervisor/CIC, Traffic Management, Other/Unknown]
+  qualification_air_traffic_control:
+    cardinality: single
+    values: [Fully Certified, Developmental]
+  experience_air_traffic_control:
+    cardinality: free
+    values: [radar_years, non_radar_years, military_years, supervisory_years, time_certified_in_position_months]
+  function_maintenance:
+    cardinality: multi
+    values: [Inspector, Instructor, Lead Technician, Parts/Stores Personnel, Quality Assurance/Audit, Technician, Trainee, Other/Unknown]
+  qualification_maintenance:
+    cardinality: multi
+    values: [Airframe, Powerplant, Apprentice, Avionics, Inspection Authority, Nondestructive Testing, Repairman]
+  experience_maintenance:
+    cardinality: free
+    values: [avionics_years, inspector_years, lead_technician_years, repairman_years, technician_years]
+  function_flight_attendant:
+    cardinality: multi
+    values: [Flight Attendant In Charge, Flight Attendant (On Duty), Off Duty, Other/Unknown]
+  qualification_flight_attendant:
+    cardinality: single
+    values: [Current]
+  experience_flight_attendant:
+    cardinality: free
+    values: [total_hours, airline_total, number_of_acft_qualified_on, type]
+  fa_cabin_activity:
+    cardinality: multi
+    values: [Boarding, Deplaning, Safety Related Duties, Service]
+  function_dispatch:
+    cardinality: multi
+    values: [Dispatcher]
+  qualification_dispatch:
+    cardinality: multi
+    values: [Dispatcher]
+  experience_dispatch:
+    cardinality: free
+    values: [dispatch]
+  function_ground_personnel:
+    cardinality: multi
+    values: [Airport Personnel, FBO Personnel, Gate Agent/CSR, Ramp Vehicle Driver, Other/Unknown]
+  function_other:
+    cardinality: multi
+    values: [Observer, Passenger, Other]
+  qualification_other:
+    cardinality: multi
+    values: [Other]
+  human_factors:
+    cardinality: multi
+    values: [Communication Breakdown, Confusion, Distraction, Fatigue, Human-Machine Interface, Physiological-Other, Situational Awareness, Time Pressure, Training/Qualification, Troubleshooting, Workload, Other/Unknown]
+  callback:
+    cardinality: single
+    values: [Attempted, Completed]
+  communication_breakdown_parties:
+    cardinality: multi
+    values: [ATC, Dispatch, Flight Attendant, Flight Crew, Ground Personnel, UAS Crew, Maintenance, Other]
+  uas_communication_breakdown_parties:
+    cardinality: multi
+    values: [Person Manipulating Controls, Remote PIC, Visual Observer, Dispatch, ATC, Maintenance, Other]
+
+events:
+  anomaly_aircraft_equipment:
+    cardinality: multi
+    values: [Critical, Less Severe]
+  anomaly_airspace_violation:
+    cardinality: multi
+    values: [All Types]
+  anomaly_atc_issues:
+    cardinality: multi
+    values: [All Types]
+  anomaly_flight_deck_cabin_aircraft_event:
+    cardinality: multi
+    values: [Illness/Injury Passenger, Electronic Device Passenger, Passenger Misconduct, Smoke/Fire/Fumes/Odor, Other/Unknown]
+  anomaly_conflict:
+    cardinality: multi
+    values: [NMAC, Airborne Conflict, Ground Conflict-Critical, Ground Conflict-Less Severe]
+  anomaly_deviation_altitude:
+    cardinality: multi
+    values: [Crossing Restriction Not Met, Excursion from Assigned Altitude, Overshoot, Undershoot]
+  anomaly_deviation_speed:
+    cardinality: multi
+    values: [All Types]
+  anomaly_deviation_track_heading:
+    cardinality: multi
+    values: [All Types]
+  anomaly_deviation_discrepancy_procedural:
+    cardinality: multi
+    values: [Clearance, FAR, Hazardous Material Violation, Landing without Clearance, Maintenance, MEL/CDL, Published Material/Policy, Security, Unauthorized Flight Operations (UAS), Weight and Balance, Other/Unknown]
+  anomaly_ground_excursion:
+    cardinality: multi
+    values: [Ramp, Runway, Taxiway]
+  anomaly_ground_incursion:
+    cardinality: multi
+    values: [Ramp, Runway, Taxiway]
+  anomaly_ground_event_encounter:
+    cardinality: multi
+    values: [Aircraft, FOD, Fuel Issue, Gear Up Landing, Ground Equipment Issue, Ground Strike-Aircraft, Jet Blast, Loss of Aircraft Control, Loss of VLOS (UAS), Object, Person/Animal/Bird, Vehicle, Weather/Turbulence, Other/Unknown]
+  anomaly_inflight_event_encounter:
+    cardinality: multi
+    values: [Aircraft, CFTT/CFIT, Fly Away (UAS), Fuel Issue, Laser, Loss of Aircraft Control, Object, Bird/Animal, Unstabilized Approach, VFR in IMC, Wake Vortex Encounter, Weather/Turbulence, Other/Unknown]
+  anomaly_no_specific_anomaly_occurred:
+    cardinality: multi
+    values: [All Types, Unwanted Situation]
+  anomaly_other:
+    cardinality: free
+    values: [write_in]
+  detector_automation:
+    cardinality: multi
+    values: [Aircraft RA, Aircraft TA, Aircraft Terrain Warning, Aircraft Other Automation, Air Traffic Control, Collision Avoidance System (UAS)]
+  detector_person:
+    cardinality: multi
+    values: [Air Traffic Control, Flight Attendant, Dispatch, Flight Crew, Gate Agent/CSR, Ground Personnel, Maintenance, Observer, Passenger, UAS Crew, Visual Observer (UAS), Other Person]
+  when_detected:
+    cardinality: single
+    values: [Routine inspection, In-flight, Taxi, Aircraft in service at gate, Pre-flight, Other]
+  miss_distance:
+    cardinality: free
+    values: [horizontal, vertical]
+  were_passengers_involved_in_the_event:
+    cardinality: single
+    values: [Yes, No]
+  result_general:
+    cardinality: multi
+    values: [Evacuated, Flight Cancelled/Delayed, Maintenance Action, Physical Injury/Incapacity, Police/Security Involved, Release Refused/Aircraft not Accepted, Work Refused, None Reported/Taken]
+  result_flight_crew:
+    cardinality: multi
+    values: [Became Reoriented, Diverted, Executed Go Around/Missed Approach, Exited Penetrated Airspace, FLC Overrode Automation, FLC Complied with Automation/Advisory, Inflight Shutdown, Landed as Precaution, Landed in Emergency Condition, Overcame Equipment Problem, Regained Aircraft Control, Rejected Takeoff, Requested ATC Assistance/Clarification, Returned to Clearance, Returned to Departure Airport, Returned to Gate, Returned to Home (UAS), Took Evasive Action]
+  result_air_traffic_control:
+    cardinality: multi
+    values: [Issued Advisory/Alert, Issued New Clearance, Provided Assistance, Separated Traffic]
+  result_aircraft:
+    cardinality: multi
+    values: [Aircraft Damaged, Automated Return to Home (UAS), Automation Overrode Flight Crew, Equipment Problem Dissipated, Lost Link (UAS), Lost/Unrecoverable (UAS)]
+
+assessments:
+  contributing_factors_situations:
+    cardinality: multi
+    values: [Aircraft, Airport, Airspace Structure, ATC Equip/Nav Facility/Buildings, Chart or Publication, Company Policy, Equipment/Tooling, Environment-Non Weather Related, Human Factors, Incorrect/Not Installed/Unavailable Part, Logbook Entry, Manuals, MEL, Procedure (inc. Airspace Authorization), Software and Automation, Staffing, Weather]
+  primary_problem:
+    cardinality: single
+    values: [Aircraft, Airport, Airspace Structure, ATC Equipment/Nav Facility/Buildings, Chart or Publication, Company Policy, Equipment/Tooling, Environment-Non-Weather Related, Human Factors, Incorrect/Not Installed/Unavailable Part, Logbook Entry, Manuals, MEL, Procedure, Software and Automation, Staffing, Weather, Ambiguous]

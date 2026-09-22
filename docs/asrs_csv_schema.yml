@@ -1,0 +1,448 @@
+# ASRS CSV Schema for Parsing
+# Source: Combined analysis from ASRS_CodingForm.pdf and ASRS_Coding_Taxonomy.yml
+# Purpose: Schema for parsing multi-level header CSV exports from NASA ASRS Database Online
+# Structure: section -> field -> metadata (cardinality, values)
+# Note: CSV uses two-level headers: Level1=Category, Level2=Field Name
+
+# Root level fields (no category in CSV header)
+root:
+  acn:
+    source: "CSV Level2: ACN"
+    cardinality: single
+    values: [accession_number]
+    description: "Unique ASRS report identifier"
+
+# TIME category
+time:
+  date:
+    source: "CSV Level2: Date"
+    cardinality: free
+    values: [yyyymm]
+    description: "Date of incident (YYYYMM format)"
+  local_time_of_day:
+    source: "CSV Level2: Local Time Of Day"
+    cardinality: single
+    values: ["0001-0600", "0601-1200", "1201-1800", "1801-2400"]
+    description: "Local time range"
+
+# PLACE category
+place:
+  locale_reference:
+    source: "CSV Level2: Locale Reference"
+    cardinality: multi
+    values: [airport_id, navaid_id_and_type, intersection_id, atc_facility_id_and_type]
+    description: "Location reference identifier"
+  state_reference:
+    source: "CSV Level2: State Reference"
+    cardinality: single
+    values: [state]
+    description: "State code"
+  relative_position:
+    angle_radial:
+      source: "CSV Level2: Relative Position.Angle.Radial"
+      cardinality: free
+      values: [radial]
+    distance_nautical_miles:
+      source: "CSV Level2: Relative Position.Distance.Nautical Miles"
+      cardinality: free
+      values: [distance_nautical_miles]
+  altitude:
+    agl_single_value:
+      source: "CSV Level2: Altitude.AGL.Single Value"
+      cardinality: free
+      values: [agl_single_value]
+    msl_single_value:
+      source: "CSV Level2: Altitude.MSL.Single Value"
+      cardinality: free
+      values: [msl_single_value]
+  latitude_longitude_uas:
+    source: "CSV Level2: Latitude / Longitude (UAS)"
+    cardinality: free
+    values: [latitude_longitude]
+
+# ENVIRONMENT category
+environment:
+  flight_conditions:
+    source: "CSV Level2: Flight Conditions"
+    cardinality: single
+    values: [VMC, IMC, Mixed, Marginal]
+    description: "Visual Meteorological Conditions"
+  weather_elements_visibility:
+    source: "CSV Level2: Weather Elements / Visibility"
+    cardinality: multi
+    values: [Cloudy, Fog, Hail, "Haze/Smoke", Icing, Rain, Snow, Thunderstorm, Turbulence, Windshear, Other, Visibility_SM]
+    description: "Weather conditions affecting visibility"
+  work_environment_factors:
+    source: "CSV Level2: Work Environment Factors"
+    cardinality: multi
+    values: ["Poor Lighting", Glare, "Temperature-Extreme", "Excessive Humidity", "Excessive Wind (UAS)"]
+  light:
+    source: "CSV Level2: Light"
+    cardinality: single
+    values: [Dawn, Daylight, Dusk, Night]
+  ceiling:
+    source: "CSV Level2: Ceiling"
+    cardinality: free
+    values: [CLR_single_value]
+  rvr:
+    source: "CSV Level2: RVR.Single Value"
+    cardinality: free
+    values: [single_value]
+
+# AIRCRAFT 1 category (first aircraft in multi-aircraft scenarios)
+aircraft_1:
+  atc_advisory:
+    source: "CSV Level2: ATC / Advisory"
+    cardinality: multi
+    values: [FSS, Center, CTAF, Ground, "Military Facility", Ramp, Tower, TRACON, UNICOM]
+  aircraft_operator:
+    source: "CSV Level2: Aircraft Operator"
+    cardinality: multi
+    values: ["Air Carrier", "Air Taxi", "Commercial Operator (UAS)", Corporate, Fractional, FBO, Government, Military, Personal, "Recreational/Hobbyist (UAS)", Other]
+  make_model:
+    source: "CSV Level2: Make Model Name"
+    cardinality: free
+    values: [name]
+    description: "Aircraft make and model"
+  aircraft_zone:
+    source: "CSV Level2: Aircraft Zone"
+    cardinality: free
+    values: [aircraft_zone]
+  crew_size:
+    source: "CSV Level2: Crew Size"
+    cardinality: free
+    values: [number_of_crew]
+  operating_under_far_part:
+    source: "CSV Level2: Operating Under FAR Part"
+    cardinality: multi
+    values: ["Part 91", "Part 103", "Part 107", "Part 119", "Part 121", "Part 125", "Part 129", "Part 133", "Part 135", "Part 137", "Public Aircraft Operations (UAS)", "Recreational Operations/Section 44809 (UAS)", Other]
+  flight_plan:
+    source: "CSV Level2: Flight Plan"
+    cardinality: single
+    values: [VFR, IFR, SVFR, DVFR, None]
+  mission:
+    source: "CSV Level2: Mission"
+    cardinality: multi
+    values: [Aerobatics, Agriculture, Ambulance, "Banner Tow", "Cargo/Freight/Delivery", "Communications (UAS)", "Ferry/Re-Positioning", "Observation/Surveillance (UAS)", Passenger, "Photo Shoot/Video", Personal, "Public Safety/Pursuit (UAS)", "Recreational/Hobbyist (UAS)", Refueling, "Search & Rescue", Skydiving, "Surveying/Mapping (UAS)", Tactical, "Test Flight/Demonstration", "Traffic Watch", Training, "Utility/Infrastructure", Other]
+  nav_in_use:
+    source: "CSV Level2: Nav In Use"
+    cardinality: multi
+    values: ["FMS/FMC", GPS, INS, "Localizer/Glideslope/ILS", NDB, "VOR/VORTAC"]
+  flight_phase:
+    source: "CSV Level2: Flight Phase"
+    cardinality: multi
+    values: [Taxi, Parked, "Ground/Preflight (UAS)", "Takeoff/Launch", "Initial Climb", Climb, Cruise, "Hovering (UAS)", "Return to Home (UAS)", Descent, "Initial Approach", "Final Approach", Landing, Other]
+  route_in_use:
+    source: "CSV Level2: Route In Use"
+    cardinality: multi
+    values: [Direct, Oceanic, "VFR Route", Vectors, "Visual Approach", None, Airway, STAR, SID, Other]
+  airspace:
+    source: "CSV Level2: Airspace"
+    cardinality: multi
+    values: ["Class A", "Class B", "Class C", "Class D", "Class E", "Class G", "Special Use", TFR]
+  maintenance_status:
+    maintenance_deferred:
+      source: "CSV Level2: Maintenance Status.Maintenance Deferred"
+      cardinality: multi
+      values: [Y, N]
+    records_complete:
+      source: "CSV Level2: Maintenance Status.Records Complete"
+      cardinality: multi
+      values: [Y, N]
+    released_for_service:
+      source: "CSV Level2: Maintenance Status.Released For Service"
+      cardinality: multi
+      values: [Y, N]
+    required_correct_doc_on_board:
+      source: "CSV Level2: Maintenance Status.Required / Correct Doc On Board"
+      cardinality: multi
+      values: [Y, N]
+  maintenance_items_involved:
+    source: "CSV Level2: Maintenance Status.Maintenance Items Involved"
+    cardinality: multi
+    values: [Inspection, Installation, Repair, Testing, Work Cards]
+  cabin_lighting:
+    source: "CSV Level2: Cabin Lighting"
+    cardinality: single
+    values: [High, Medium, Low, Off]
+  number_of_seats:
+    source: "CSV Level2: Number Of Seats.Number"
+    cardinality: free
+    values: [number]
+  passengers_on_board:
+    source: "CSV Level2: Passengers On Board.Number"
+    cardinality: free
+    values: [number]
+  crew_size_flight_attendant:
+    source: "CSV Level2: Crew Size Flight Attendant.Number Of Crew"
+    cardinality: free
+    values: [number]
+
+# AIRCRAFT 2 category (second aircraft in multi-aircraft scenarios)
+aircraft_2:
+  atc_advisory:
+    source: "CSV Level2: ATC / Advisory"
+    cardinality: multi
+    values: [FSS, Center, CTAF, Ground, "Military Facility", Ramp, Tower, TRACON, UNICOM]
+  aircraft_operator:
+    source: "CSV Level2: Aircraft Operator"
+    cardinality: multi
+    values: ["Air Carrier", "Air Taxi", "Commercial Operator (UAS)", Corporate, Fractional, FBO, Government, Military, Personal, "Recreational/Hobbyist (UAS)", Other]
+  make_model:
+    source: "CSV Level2: Make Model Name"
+    cardinality: free
+    values: [name]
+  # ... (same structure as aircraft_1)
+
+# COMPONENT category
+component:
+  component:
+    source: "CSV Level2: Aircraft Component"
+    cardinality: multi
+    values: [aircraft_component]
+    description: "Specific aircraft component involved"
+  manufacturer:
+    source: "CSV Level2: Manufacturer"
+    cardinality: multi
+    values: [manufacturer]
+  aircraft_reference:
+    source: "CSV Level2: Aircraft Reference"
+    cardinality: multi
+    values: [X, Y, Z, Other]
+  problem:
+    source: "CSV Level2: Problem"
+    cardinality: multi
+    values: [Design, Failed, "Improperly Operated", Malfunctioning]
+
+# PERSON 1 category (first person in multi-person scenarios)
+person_1:
+  person_number:
+    source: "CSV Level2: Person Number"
+    cardinality: single
+    values: ["1-30"]
+  location_of_person:
+    source: "CSV Level2: Location Of Person"
+    cardinality: multi
+    values: [Aircraft, Facility, Company, "Gate/Ramp/Line", "Hangar/Base", "Repair Facility", "Indoor/Ground Control Station (UAS)", "Outdoor/Field Station (UAS)", Other]
+  location_in_aircraft:
+    source: "CSV Level2: Location In Aircraft"
+    cardinality: multi
+    values: ["Flight Deck", Cabin, Jumpseat, "Crew Rest Area", "Door Area", Galley, "General Seating Area", Lavatory, Other]
+  reporter_organization:
+    source: "CSV Level2: Reporter Organization"
+    cardinality: multi
+    values: ["Air Carrier", "Air Taxi", "Commercial Operator (UAS)", "Contracted Service", Corporate, Fractional, FBO, Government, Military, Personal, "Recreational/Hobbyist (UAS)", Other]
+  asrs_report_number:
+    source: "CSV Level2: ASRS Report Number.Accession Number"
+    cardinality: single
+    values: [accession_number]
+  # Function fields (split across multiple columns in CSV)
+  function:
+    flight_crew:
+      source: "CSV Level2: Function"
+      cardinality: multi
+      values: [Captain, "Check Pilot", "First Officer", "Flight Engineer/Second Officer", Instructor, "Person Manipulating Controls (UAS)", "Pilot Flying", "Pilot Not Flying", "Relief Pilot", "Remote PIC (UAS)", "Single Pilot", Trainee, "Visual Observer (UAS)", "Other/Unknown"]
+    air_traffic_control:
+      source: "CSV Level2: Function"
+      cardinality: multi
+      values: [Approach, Coordinator, Departure, Enroute, "Flight Data/Clearance Delivery", "Flight Service", Ground, "Handoff/Assist", Instructor, Trainee, Local, Oceanic, "Supervisor/CIC", "Traffic Management", "Other/Unknown"]
+  qualification:
+    flight_crew:
+      source: "CSV Level2: Qualification"
+      cardinality: multi
+      values: [Student, "Sport/Recreational", Private, Commercial, "Air Transport Pilot (ATP)", "Remote Pilot (UAS)", "Public Aircraft Operations (UAS)", "Flight Instructor", Multiengine, Instrument, "Flight Engineer", Rotorcraft, "Lighter-Than-Air", Sea, Glider]
+    air_traffic_control:
+      source: "CSV Level2: Qualification"
+      cardinality: single
+      values: ["Fully Certified", Developmental]
+  experience:
+    flight_crew:
+      source: "CSV Level2: Experience"
+      cardinality: free
+      values: [total_hours, last_90_days, type_hours, total_uas, last_90_days_uas, type_uas]
+    air_traffic_control:
+      source: "CSV Level2: Experience"
+      cardinality: free
+      values: [radar_years, non_radar_years, military_years, supervisory_years, time_certified_in_position_months]
+  cabin_activity:
+    source: "CSV Level2: Cabin Activity"
+    cardinality: multi
+    values: [Boarding, Deplaning, "Safety Related Duties", Service]
+  human_factors:
+    source: "CSV Level2: Human Factors"
+    cardinality: multi
+    values: ["Communication Breakdown", Confusion, Distraction, Fatigue, "Human-Machine Interface", "Physiological-Other", "Situational Awareness", "Time Pressure", "Training/Qualification", Troubleshooting, Workload, "Other/Unknown"]
+  callback:
+    source: "CSV Level2: Callback"
+    cardinality: single
+    values: [Attempted, Completed]
+  communication_breakdown_parties:
+    source: "CSV Level2: Communication Breakdown"
+    cardinality: multi
+    values: [ATC, Dispatch, "Flight Attendant", "Flight Crew", "Ground Personnel", "UAS Crew", Maintenance, Other]
+  uas_communication_breakdown_parties:
+    source: "CSV Level2: UAS Communication Breakdown"
+    cardinality: multi
+    values: ["Person Manipulating Controls", "Remote PIC", "Visual Observer", Dispatch, ATC, Maintenance, Other]
+
+# PERSON 2 category (second person in multi-person scenarios)
+person_2:
+  # Same structure as person_1
+  person_number:
+    source: "CSV Level2: Person Number"
+    cardinality: single
+    values: ["1-30"]
+  # ... (same fields as person_1)
+
+# EVENTS category
+events:
+  anomaly:
+    aircraft_equipment:
+      source: "CSV Level2: Anomaly"
+      cardinality: multi
+      values: [Critical, "Less Severe"]
+    airspace_violation:
+      source: "CSV Level2: Anomaly"
+      cardinality: multi
+      values: ["All Types"]
+    atc_issues:
+      source: "CSV Level2: Anomaly"
+      cardinality: multi
+      values: ["All Types"]
+    flight_deck_cabin_aircraft_event:
+      source: "CSV Level2: Anomaly"
+      cardinality: multi
+      values: ["Illness/Injury Passenger", "Electronic Device Passenger", "Passenger Misconduct", "Smoke/Fire/Fumes/Odor", "Other/Unknown"]
+    conflict:
+      source: "CSV Level2: Anomaly"
+      cardinality: multi
+      values: [NMAC, "Airborne Conflict", "Ground Conflict-Critical", "Ground Conflict-Less Severe"]
+    deviation_altitude:
+      source: "CSV Level2: Anomaly"
+      cardinality: multi
+      values: ["Crossing Restriction Not Met", "Excursion from Assigned Altitude", Overshoot, Undershoot]
+    deviation_speed:
+      source: "CSV Level2: Anomaly"
+      cardinality: multi
+      values: ["All Types"]
+    deviation_track_heading:
+      source: "CSV Level2: Anomaly"
+      cardinality: multi
+      values: ["All Types"]
+    deviation_discrepancy_procedural:
+      source: "CSV Level2: Anomaly"
+      cardinality: multi
+      values: [Clearance, FAR, "Hazardous Material Violation", "Landing without Clearance", Maintenance, MEL/CDL, "Published Material/Policy", Security, "Unauthorized Flight Operations (UAS)", "Weight and Balance", "Other/Unknown"]
+    ground_excursion:
+      source: "CSV Level2: Anomaly"
+      cardinality: multi
+      values: [Ramp, Runway, Taxiway]
+    ground_incursion:
+      source: "CSV Level2: Anomaly"
+      cardinality: multi
+      values: [Ramp, Runway, Taxiway]
+    ground_event_encounter:
+      source: "CSV Level2: Anomaly"
+      cardinality: multi
+      values: [Aircraft, FOD, "Fuel Issue", "Gear Up Landing", "Ground Equipment Issue", "Ground Strike-Aircraft", "Jet Blast", "Loss of Aircraft Control", "Loss of VLOS (UAS)", Object, "Person/Animal/Bird", Vehicle, "Weather/Turbulence", "Other/Unknown"]
+    inflight_event_encounter:
+      source: "CSV Level2: Anomaly"
+      cardinality: multi
+      values: [Aircraft, "CFTT/CFIT", "Fly Away (UAS)", "Fuel Issue", Laser, "Loss of Aircraft Control", Object, "Bird/Animal", "Unstabilized Approach", "VFR in IMC", "Wake Vortex Encounter", "Weather/Turbulence", "Other/Unknown"]
+    no_specific_anomaly_occurred:
+      source: "CSV Level2: Anomaly"
+      cardinality: multi
+      values: ["All Types", "Unwanted Situation"]
+    other:
+      source: "CSV Level2: Anomaly"
+      cardinality: free
+      values: [write_in]
+  detector:
+    automation:
+      source: "CSV Level2: Detector"
+      cardinality: multi
+      values: ["Aircraft RA", "Aircraft TA", "Aircraft Terrain Warning", "Aircraft Other Automation", "Air Traffic Control", "Collision Avoidance System (UAS)"]
+    person:
+      source: "CSV Level2: Detector"
+      cardinality: multi
+      values: ["Air Traffic Control", "Flight Attendant", Dispatch, "Flight Crew", "Gate Agent/CSR", "Ground Personnel", Maintenance, Observer, Passenger, "UAS Crew", "Visual Observer (UAS)", "Other Person"]
+  when_detected:
+    source: "CSV Level2: When Detected"
+    cardinality: single
+    values: ["Routine inspection", "In-flight", Taxi, "Aircraft in service at gate", "Pre-flight", Other]
+  miss_distance:
+    source: "CSV Level2: Miss Distance"
+    cardinality: free
+    values: [horizontal, vertical]
+  were_passengers_involved_in_the_event:
+    source: "CSV Level2: Were Passengers Involved In Event"
+    cardinality: single
+    values: [Yes, No]
+  result:
+    general:
+      source: "CSV Level2: Result"
+      cardinality: multi
+      values: [Evacuated, "Flight Cancelled/Delayed", "Maintenance Action", "Physical Injury/Incapacity", "Police/Security Involved", "Release Refused/Aircraft not Accepted", "Work Refused", "None Reported/Taken"]
+    flight_crew:
+      source: "CSV Level2: Result"
+      cardinality: multi
+      values: ["Became Reoriented", Diverted, "Executed Go Around/Missed Approach", "Exited Penetrated Airspace", "FLC Overrode Automation", "FLC Complied with Automation/Advisory", "Inflight Shutdown", "Landed as Precaution", "Landed in Emergency Condition", "Overcame Equipment Problem", "Regained Aircraft Control", "Rejected Takeoff", "Requested ATC Assistance/Clarification", "Returned to Clearance", "Returned to Departure Airport", "Returned to Gate", "Returned to Home (UAS)", "Took Evasive Action"]
+    air_traffic_control:
+      source: "CSV Level2: Result"
+      cardinality: multi
+      values: ["Issued Advisory/Alert", "Issued New Clearance", "Provided Assistance", "Separated Traffic"]
+    aircraft:
+      source: "CSV Level2: Result"
+      cardinality: multi
+      values: ["Aircraft Damaged", "Automated Return to Home (UAS)", "Automation Overrode Flight Crew", "Equipment Problem Dissipated", "Lost Link (UAS)", "Lost/Unrecoverable (UAS)"]
+
+# ASSESSMENTS category
+assessments:
+  contributing_factors_situations:
+    source: "CSV Level2: Contributing Factors / Situations"
+    cardinality: multi
+    values: [Aircraft, Airport, "Airspace Structure", "ATC Equip/Nav Facility/Buildings", "Chart or Publication", "Company Policy", "Equipment/Tooling", "Environment-Non Weather Related", "Human Factors", "Incorrect/Not Installed/Unavailable Part", "Logbook Entry", Manuals, MEL, "Procedure (inc. Airspace Authorization)", "Software and Automation", Staffing, Weather]
+  primary_problem:
+    source: "CSV Level2: Primary Problem"
+    cardinality: single
+    values: [Aircraft, Airport, "Airspace Structure", "ATC Equipment/Nav Facility/Buildings", "Chart or Publication", "Company Policy", "Equipment/Tooling", "Environment-Non Weather Related", "Human Factors", "Incorrect/Not Installed/Unavailable Part", "Logbook Entry", Manuals, MEL, Procedure, "Software and Automation", Staffing, Weather, Ambiguous]
+
+# REPORT 1 category (from my analysis - missing from taxonomy.yml)
+report_1:
+  narrative:
+    source: "CSV Level2: Narrative"
+    cardinality: free
+    values: [text]
+    description: "Reporter's detailed narrative of the incident"
+  callback:
+    source: "CSV Level2: Callback"
+    cardinality: single
+    values: [Attempted, Completed]
+    description: "Whether callback was attempted/completed"
+
+# REPORT 2 category (from my analysis - missing from taxonomy.yml)
+report_2:
+  narrative:
+    source: "CSV Level2: Narrative"
+    cardinality: free
+    values: [text]
+    description: "Second narrative (possibly analyst summary)"
+  callback:
+    source: "CSV Level2: Callback"
+    cardinality: single
+    values: [Attempted, Completed]
+  synopsis:
+    source: "CSV Level2: Synopsis"
+    cardinality: free
+    values: [text]
+    description: "Brief synopsis/analyst summary"
+
+# Metadata
+metadata:
+  source: "NASA ASRS Database Online"
+  export_format: "CSV with multi-level headers"
+  extraction_date: "2026-09-22"
+  total_rows: 2908
+  total_columns: 126
+  multi_level_columns: true
+  notes: "CSV has hierarchical column structure matching ASRS Coding Form categories"
