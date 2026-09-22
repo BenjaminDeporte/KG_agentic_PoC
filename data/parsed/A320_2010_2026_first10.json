@@ -1,0 +1,934 @@
+[
+  {
+    "_source": {
+      "file": "A320_2010_2026.csv",
+      "row": 3
+    },
+    "acn": "866977",
+    "time": {
+      "date": "201001",
+      "local_time_of_day": "1201-1800"
+    },
+    "place": {
+      "locale_reference": "ZZZ.ARTCC",
+      "state_reference": "US",
+      "altitude": {
+        "msl_single_value": "34000"
+      }
+    },
+    "environment": {
+      "flight_conditions": "VMC",
+      "light": "Daylight"
+    },
+    "aircraft": {
+      "atc_advisory": "Center ZZZ",
+      "aircraft_operator": "Air Carrier",
+      "make_model": "A320",
+      "crew_size": "2",
+      "operating_under_far_part": "Part 121",
+      "flight_plan": "IFR",
+      "mission": "Passenger",
+      "flight_phase": "Descent",
+      "airspace": "Class A ZZZ"
+    },
+    "component": {
+      "component": "Hydraulic Main System",
+      "aircraft_reference": "X",
+      "problem": "Malfunctioning"
+    },
+    "person": [
+      {
+        "location_of_person": "Aircraft X",
+        "location_in_aircraft": "Flight Deck",
+        "reporter_organization": "Air Carrier",
+        "asrs_report_number": "866977",
+        "function": {
+          "flight_crew": "First Officer; Pilot Flying",
+          "air_traffic_control": "First Officer; Pilot Flying"
+        },
+        "qualification": {
+          "flight_crew": "Flight Crew Air Transport Pilot (ATP)",
+          "air_traffic_control": "Flight Crew Air Transport Pilot (ATP)"
+        },
+        "experience": {
+          "flight_crew": "Flight Crew Last 90 Days 192; Flight Crew Total 16500; Flight Crew Type 4900",
+          "air_traffic_control": "Flight Crew Last 90 Days 192; Flight Crew Total 16500; Flight Crew Type 4900"
+        },
+        "human_factors": "Time Pressure; Situational Awareness; Distraction; Workload; Troubleshooting"
+      }
+    ],
+    "events": {
+      "anomaly": {
+        "aircraft_equipment": "Aircraft Equipment Problem Critical",
+        "airspace_violation": "Aircraft Equipment Problem Critical",
+        "atc_issues": "Aircraft Equipment Problem Critical",
+        "flight_deck_cabin_aircraft_event": "Aircraft Equipment Problem Critical",
+        "conflict": "Aircraft Equipment Problem Critical",
+        "deviation_altitude": "Aircraft Equipment Problem Critical",
+        "deviation_speed": "Aircraft Equipment Problem Critical",
+        "deviation_track_heading": "Aircraft Equipment Problem Critical",
+        "deviation_discrepancy_procedural": "Aircraft Equipment Problem Critical",
+        "ground_excursion": "Aircraft Equipment Problem Critical",
+        "ground_incursion": "Aircraft Equipment Problem Critical",
+        "ground_event_encounter": "Aircraft Equipment Problem Critical",
+        "inflight_event_encounter": "Aircraft Equipment Problem Critical",
+        "no_specific_anomaly_occurred": "Aircraft Equipment Problem Critical",
+        "other": "Aircraft Equipment Problem Critical"
+      },
+      "detector": {
+        "automation": "Automation Aircraft Other Automation; Person Flight Crew",
+        "person": "Automation Aircraft Other Automation; Person Flight Crew"
+      },
+      "when_detected": "In-flight",
+      "result": {
+        "general": "Flight Crew FLC complied w / Automation / Advisory; Flight Crew Landed in Emergency Condition; General Declared Emergency; General Maintenance Action",
+        "flight_crew": "Flight Crew FLC complied w / Automation / Advisory; Flight Crew Landed in Emergency Condition; General Declared Emergency; General Maintenance Action",
+        "air_traffic_control": "Flight Crew FLC complied w / Automation / Advisory; Flight Crew Landed in Emergency Condition; General Declared Emergency; General Maintenance Action",
+        "aircraft": "Flight Crew FLC complied w / Automation / Advisory; Flight Crew Landed in Emergency Condition; General Declared Emergency; General Maintenance Action"
+      }
+    },
+    "assessments": {
+      "contributing_factors_situations": "Aircraft",
+      "primary_problem": "Aircraft"
+    },
+    "report": {
+      "narrative": "Descending we got an ECAM HYD G RSVR LO LVL. The First Officer flew the aircraft and declared an emergency with ATC while I performed the ECAM items. I turned off the PTU and Eng 1 Hydraulic pump per the ECAM and went into the irregular section to check for any other items."
+    }
+  },
+  {
+    "_source": {
+      "file": "A320_2010_2026.csv",
+      "row": 4
+    },
+    "acn": "867027",
+    "time": {
+      "date": "201001",
+      "local_time_of_day": "0001-0600"
+    },
+    "place": {
+      "locale_reference": "ZZZ.Airport",
+      "state_reference": "US",
+      "altitude": {
+        "agl_single_value": "0"
+      }
+    },
+    "aircraft": {
+      "atc_advisory": "Tower ZZZ",
+      "aircraft_operator": "Air Carrier",
+      "make_model": "A320",
+      "crew_size": "2",
+      "operating_under_far_part": "Part 121",
+      "flight_plan": "IFR",
+      "mission": "Passenger",
+      "flight_phase": "Takeoff / Launch"
+    },
+    "component": {
+      "component": "Turbine Engine",
+      "aircraft_reference": "X",
+      "problem": "Malfunctioning"
+    },
+    "person": [
+      {
+        "location_of_person": "Aircraft X",
+        "location_in_aircraft": "Flight Deck",
+        "reporter_organization": "Air Carrier",
+        "asrs_report_number": "867027",
+        "function": {
+          "flight_crew": "Captain; Pilot Flying",
+          "air_traffic_control": "Captain; Pilot Flying"
+        },
+        "qualification": {
+          "flight_crew": "Flight Crew Air Transport Pilot (ATP)",
+          "air_traffic_control": "Flight Crew Air Transport Pilot (ATP)"
+        },
+        "experience": {
+          "flight_crew": "Flight Crew Last 90 Days 125; Flight Crew Total 24000; Flight Crew Type 6400",
+          "air_traffic_control": "Flight Crew Last 90 Days 125; Flight Crew Total 24000; Flight Crew Type 6400"
+        },
+        "human_factors": "Human-Machine Interface"
+      }
+    ],
+    "events": {
+      "anomaly": {
+        "aircraft_equipment": "Aircraft Equipment Problem Critical; Inflight Event / Encounter Loss Of Aircraft Control",
+        "airspace_violation": "Aircraft Equipment Problem Critical; Inflight Event / Encounter Loss Of Aircraft Control",
+        "atc_issues": "Aircraft Equipment Problem Critical; Inflight Event / Encounter Loss Of Aircraft Control",
+        "flight_deck_cabin_aircraft_event": "Aircraft Equipment Problem Critical; Inflight Event / Encounter Loss Of Aircraft Control",
+        "conflict": "Aircraft Equipment Problem Critical; Inflight Event / Encounter Loss Of Aircraft Control",
+        "deviation_altitude": "Aircraft Equipment Problem Critical; Inflight Event / Encounter Loss Of Aircraft Control",
+        "deviation_speed": "Aircraft Equipment Problem Critical; Inflight Event / Encounter Loss Of Aircraft Control",
+        "deviation_track_heading": "Aircraft Equipment Problem Critical; Inflight Event / Encounter Loss Of Aircraft Control",
+        "deviation_discrepancy_procedural": "Aircraft Equipment Problem Critical; Inflight Event / Encounter Loss Of Aircraft Control",
+        "ground_excursion": "Aircraft Equipment Problem Critical; Inflight Event / Encounter Loss Of Aircraft Control",
+        "ground_incursion": "Aircraft Equipment Problem Critical; Inflight Event / Encounter Loss Of Aircraft Control",
+        "ground_event_encounter": "Aircraft Equipment Problem Critical; Inflight Event / Encounter Loss Of Aircraft Control",
+        "inflight_event_encounter": "Aircraft Equipment Problem Critical; Inflight Event / Encounter Loss Of Aircraft Control",
+        "no_specific_anomaly_occurred": "Aircraft Equipment Problem Critical; Inflight Event / Encounter Loss Of Aircraft Control",
+        "other": "Aircraft Equipment Problem Critical; Inflight Event / Encounter Loss Of Aircraft Control"
+      },
+      "detector": {
+        "automation": "Person Flight Crew",
+        "person": "Person Flight Crew"
+      },
+      "when_detected": "In-flight",
+      "were_passengers_involved_in_the_event": "N",
+      "result": {
+        "general": "Flight Crew Regained Aircraft Control; Flight Crew Returned To Gate; General Maintenance Action",
+        "flight_crew": "Flight Crew Regained Aircraft Control; Flight Crew Returned To Gate; General Maintenance Action",
+        "air_traffic_control": "Flight Crew Regained Aircraft Control; Flight Crew Returned To Gate; General Maintenance Action",
+        "aircraft": "Flight Crew Regained Aircraft Control; Flight Crew Returned To Gate; General Maintenance Action"
+      }
+    },
+    "assessments": {
+      "contributing_factors_situations": "Aircraft; Environment - Non Weather Related; Human Factors",
+      "primary_problem": "Aircraft"
+    },
+    "report": {
+      "narrative": "When the power levers were brought up only the left engine spooled up. The runway condition was less than good.  The aircraft began a right swerve. The power levers were brought all the way back and hard breaking applied.  Only when left reverse was applied was the aircraft stopped. Total swerve was close to 90 degrees. The aircraft remained on the runway and we taxied off the runway and returned to the gate. The flight was canceled.  Maintenance and Dispatch were notified for maintenance action."
+    }
+  },
+  {
+    "_source": {
+      "file": "A320_2010_2026.csv",
+      "row": 5
+    },
+    "acn": "867400",
+    "time": {
+      "date": "201001",
+      "local_time_of_day": "0601-1200"
+    },
+    "place": {
+      "locale_reference": "ZZZZ.Airport",
+      "state_reference": "FO",
+      "altitude": {
+        "msl_single_value": "8000"
+      }
+    },
+    "environment": {
+      "flight_conditions": "VMC"
+    },
+    "aircraft": {
+      "atc_advisory": "TRACON ZZZZ",
+      "aircraft_operator": "Air Carrier",
+      "make_model": "A320",
+      "crew_size": "2",
+      "operating_under_far_part": "Part 121",
+      "flight_plan": "IFR",
+      "mission": "Passenger",
+      "flight_phase": "Final Approach; Initial Approach"
+    },
+    "component": {
+      "component": "Flap Control (Trailing & Leading Edge)",
+      "aircraft_reference": "X",
+      "problem": "Failed"
+    },
+    "person": [
+      {
+        "location_of_person": "Aircraft X",
+        "location_in_aircraft": "Flight Deck",
+        "reporter_organization": "Air Carrier",
+        "asrs_report_number": "867400",
+        "function": {
+          "flight_crew": "Captain; Pilot Flying",
+          "air_traffic_control": "Captain; Pilot Flying"
+        },
+        "qualification": {
+          "flight_crew": "Flight Crew Air Transport Pilot (ATP)",
+          "air_traffic_control": "Flight Crew Air Transport Pilot (ATP)"
+        },
+        "experience": {
+          "flight_crew": "Flight Crew Last 90 Days 210; Flight Crew Total 10000; Flight Crew Type 700",
+          "air_traffic_control": "Flight Crew Last 90 Days 210; Flight Crew Total 10000; Flight Crew Type 700"
+        }
+      }
+    ],
+    "events": {
+      "anomaly": {
+        "aircraft_equipment": "Aircraft Equipment Problem Critical",
+        "airspace_violation": "Aircraft Equipment Problem Critical",
+        "atc_issues": "Aircraft Equipment Problem Critical",
+        "flight_deck_cabin_aircraft_event": "Aircraft Equipment Problem Critical",
+        "conflict": "Aircraft Equipment Problem Critical",
+        "deviation_altitude": "Aircraft Equipment Problem Critical",
+        "deviation_speed": "Aircraft Equipment Problem Critical",
+        "deviation_track_heading": "Aircraft Equipment Problem Critical",
+        "deviation_discrepancy_procedural": "Aircraft Equipment Problem Critical",
+        "ground_excursion": "Aircraft Equipment Problem Critical",
+        "ground_incursion": "Aircraft Equipment Problem Critical",
+        "ground_event_encounter": "Aircraft Equipment Problem Critical",
+        "inflight_event_encounter": "Aircraft Equipment Problem Critical",
+        "no_specific_anomaly_occurred": "Aircraft Equipment Problem Critical",
+        "other": "Aircraft Equipment Problem Critical"
+      },
+      "detector": {
+        "automation": "Automation Aircraft Other Automation; Person Flight Crew",
+        "person": "Automation Aircraft Other Automation; Person Flight Crew"
+      },
+      "when_detected": "In-flight",
+      "result": {
+        "general": "Flight Crew Landed in Emergency Condition; General Declared Emergency",
+        "flight_crew": "Flight Crew Landed in Emergency Condition; General Declared Emergency",
+        "air_traffic_control": "Flight Crew Landed in Emergency Condition; General Declared Emergency",
+        "aircraft": "Flight Crew Landed in Emergency Condition; General Declared Emergency"
+      }
+    },
+    "assessments": {
+      "contributing_factors_situations": "Aircraft",
+      "primary_problem": "Aircraft"
+    },
+    "report": {
+      "narrative": "We were downwind abeam the airport at 8;000 feet; flaps two; gear down and 170 knots. We were asked by ATC to accelerate to 200 knots. We retracted the flaps to 1 + F and began to accelerate. As we moved the flaps to position 1 we got an F/CTL FLAPS LOCKED ECAM. While working the ECAM and appropriate checklists; we got a BSCU CH 1 FAULT ECAM. Based on the situation; we decided to notify the cabin crew of a advisory and declared an emergency with approach control. The approach and landing were uneventful."
+    }
+  },
+  {
+    "_source": {
+      "file": "A320_2010_2026.csv",
+      "row": 6
+    },
+    "acn": "867406",
+    "time": {
+      "date": "201001",
+      "local_time_of_day": "0601-1200"
+    },
+    "place": {
+      "locale_reference": "ZZZ.ARTCC",
+      "state_reference": "US",
+      "relative_position": {
+        "distance_nautical_miles": "160"
+      },
+      "altitude": {
+        "msl_single_value": "38000"
+      }
+    },
+    "environment": {
+      "ceiling": "CLR"
+    },
+    "aircraft": {
+      "atc_advisory": "Center ZZZ",
+      "aircraft_operator": "Air Carrier",
+      "make_model": "A320",
+      "crew_size": "2",
+      "operating_under_far_part": "Part 121",
+      "flight_plan": "IFR",
+      "mission": "Passenger",
+      "flight_phase": "Cruise",
+      "airspace": "Class A ZZZ"
+    },
+    "component": {
+      "component": "Hydraulic Main System",
+      "aircraft_reference": "X",
+      "problem": "Malfunctioning"
+    },
+    "person": [
+      {
+        "location_of_person": "Aircraft X",
+        "location_in_aircraft": "Flight Deck",
+        "reporter_organization": "Air Carrier",
+        "asrs_report_number": "867406",
+        "function": {
+          "flight_crew": "Pilot Flying; Captain",
+          "air_traffic_control": "Pilot Flying; Captain"
+        },
+        "qualification": {
+          "flight_crew": "Flight Crew Air Transport Pilot (ATP)",
+          "air_traffic_control": "Flight Crew Air Transport Pilot (ATP)"
+        },
+        "experience": {
+          "flight_crew": "Flight Crew Last 90 Days 20; Flight Crew Total 7000; Flight Crew Type 40",
+          "air_traffic_control": "Flight Crew Last 90 Days 20; Flight Crew Total 7000; Flight Crew Type 40"
+        }
+      }
+    ],
+    "events": {
+      "anomaly": {
+        "aircraft_equipment": "Aircraft Equipment Problem Critical",
+        "airspace_violation": "Aircraft Equipment Problem Critical",
+        "atc_issues": "Aircraft Equipment Problem Critical",
+        "flight_deck_cabin_aircraft_event": "Aircraft Equipment Problem Critical",
+        "conflict": "Aircraft Equipment Problem Critical",
+        "deviation_altitude": "Aircraft Equipment Problem Critical",
+        "deviation_speed": "Aircraft Equipment Problem Critical",
+        "deviation_track_heading": "Aircraft Equipment Problem Critical",
+        "deviation_discrepancy_procedural": "Aircraft Equipment Problem Critical",
+        "ground_excursion": "Aircraft Equipment Problem Critical",
+        "ground_incursion": "Aircraft Equipment Problem Critical",
+        "ground_event_encounter": "Aircraft Equipment Problem Critical",
+        "inflight_event_encounter": "Aircraft Equipment Problem Critical",
+        "no_specific_anomaly_occurred": "Aircraft Equipment Problem Critical",
+        "other": "Aircraft Equipment Problem Critical"
+      },
+      "detector": {
+        "automation": "Automation Aircraft Other Automation; Person Flight Crew",
+        "person": "Automation Aircraft Other Automation; Person Flight Crew"
+      },
+      "when_detected": "In-flight",
+      "were_passengers_involved_in_the_event": "N",
+      "result": {
+        "general": "Flight Crew Landed in Emergency Condition; General Declared Emergency; General Maintenance Action; General Flight Cancelled / Delayed",
+        "flight_crew": "Flight Crew Landed in Emergency Condition; General Declared Emergency; General Maintenance Action; General Flight Cancelled / Delayed",
+        "air_traffic_control": "Flight Crew Landed in Emergency Condition; General Declared Emergency; General Maintenance Action; General Flight Cancelled / Delayed",
+        "aircraft": "Flight Crew Landed in Emergency Condition; General Declared Emergency; General Maintenance Action; General Flight Cancelled / Delayed"
+      }
+    },
+    "assessments": {
+      "contributing_factors_situations": "Aircraft",
+      "primary_problem": "Aircraft"
+    },
+    "report": {
+      "narrative": "At 160 miles to our destination at FL380 we had an ECAM message 'GREEN HYD RES LOW PRESSURE.' We followed the ECAM procedure along with the 'Manual Gear Extension' checklist in our flight manual. We declared an emergency and landed at our destination uneventfully.  We then waited for approximately an hour and a half for the gear to be pinned by maintenance. We were then towed to the gate and deplaned."
+    }
+  },
+  {
+    "_source": {
+      "file": "A320_2010_2026.csv",
+      "row": 7
+    },
+    "acn": "867548",
+    "time": {
+      "date": "201001",
+      "local_time_of_day": "0601-1200"
+    },
+    "place": {
+      "locale_reference": "ZZZ.Airport",
+      "state_reference": "US",
+      "relative_position": {
+        "distance_nautical_miles": "160"
+      },
+      "altitude": {
+        "msl_single_value": "38000"
+      }
+    },
+    "environment": {
+      "ceiling": "CLR"
+    },
+    "aircraft": {
+      "atc_advisory": "Center ZZZ",
+      "aircraft_operator": "Air Carrier",
+      "make_model": "A320",
+      "crew_size": "2",
+      "flight_plan": "IFR",
+      "mission": "Passenger",
+      "flight_phase": "Cruise",
+      "airspace": "Class A ZZZ"
+    },
+    "component": {
+      "component": "Hydraulic Syst Reservoir Tank",
+      "aircraft_reference": "X",
+      "problem": "Malfunctioning"
+    },
+    "person": [
+      {
+        "location_of_person": "Aircraft X",
+        "location_in_aircraft": "Flight Deck",
+        "reporter_organization": "Air Carrier",
+        "asrs_report_number": "867548",
+        "function": {
+          "flight_crew": "Pilot Not Flying",
+          "air_traffic_control": "Pilot Not Flying"
+        },
+        "experience": {
+          "flight_crew": "Flight Crew Last 90 Days 70; Flight Crew Total 7000; Flight Crew Type 1900",
+          "air_traffic_control": "Flight Crew Last 90 Days 70; Flight Crew Total 7000; Flight Crew Type 1900"
+        },
+        "human_factors": "Human-Machine Interface"
+      }
+    ],
+    "events": {
+      "anomaly": {
+        "aircraft_equipment": "Aircraft Equipment Problem Less Severe",
+        "airspace_violation": "Aircraft Equipment Problem Less Severe",
+        "atc_issues": "Aircraft Equipment Problem Less Severe",
+        "flight_deck_cabin_aircraft_event": "Aircraft Equipment Problem Less Severe",
+        "conflict": "Aircraft Equipment Problem Less Severe",
+        "deviation_altitude": "Aircraft Equipment Problem Less Severe",
+        "deviation_speed": "Aircraft Equipment Problem Less Severe",
+        "deviation_track_heading": "Aircraft Equipment Problem Less Severe",
+        "deviation_discrepancy_procedural": "Aircraft Equipment Problem Less Severe",
+        "ground_excursion": "Aircraft Equipment Problem Less Severe",
+        "ground_incursion": "Aircraft Equipment Problem Less Severe",
+        "ground_event_encounter": "Aircraft Equipment Problem Less Severe",
+        "inflight_event_encounter": "Aircraft Equipment Problem Less Severe",
+        "no_specific_anomaly_occurred": "Aircraft Equipment Problem Less Severe",
+        "other": "Aircraft Equipment Problem Less Severe"
+      },
+      "detector": {
+        "automation": "Automation Aircraft Other Automation",
+        "person": "Automation Aircraft Other Automation"
+      },
+      "when_detected": "In-flight",
+      "result": {
+        "general": "Flight Crew Landed in Emergency Condition; General Declared Emergency",
+        "flight_crew": "Flight Crew Landed in Emergency Condition; General Declared Emergency",
+        "air_traffic_control": "Flight Crew Landed in Emergency Condition; General Declared Emergency",
+        "aircraft": "Flight Crew Landed in Emergency Condition; General Declared Emergency"
+      }
+    },
+    "assessments": {
+      "contributing_factors_situations": "Aircraft; Human Factors",
+      "primary_problem": "Aircraft"
+    },
+    "report": {
+      "narrative": "At 160 miles to ZZZ at FL380 we had an ECAM message 'Green Hyd Res low pressure.' We followed the ECAM procedure along with the manual gear extension checklist. We declared an emergency and landed. Later we were towed to the gate and deplaned."
+    }
+  },
+  {
+    "_source": {
+      "file": "A320_2010_2026.csv",
+      "row": 8
+    },
+    "acn": "867681",
+    "time": {
+      "date": "201001",
+      "local_time_of_day": "0601-1200"
+    },
+    "place": {
+      "locale_reference": "ZZZ.ARTCC",
+      "state_reference": "US",
+      "altitude": {
+        "msl_single_value": "37000"
+      }
+    },
+    "environment": {
+      "ceiling": "CLR"
+    },
+    "aircraft": {
+      "atc_advisory": "Center ZZZ",
+      "aircraft_operator": "Air Carrier",
+      "make_model": "A320",
+      "crew_size": "2",
+      "operating_under_far_part": "Part 121",
+      "flight_plan": "IFR",
+      "mission": "Passenger",
+      "flight_phase": "Cruise"
+    },
+    "person": [
+      {
+        "location_of_person": "Aircraft X",
+        "location_in_aircraft": "Flight Deck",
+        "reporter_organization": "Air Carrier",
+        "asrs_report_number": "867681",
+        "function": {
+          "flight_crew": "Pilot Not Flying; Captain",
+          "air_traffic_control": "Pilot Not Flying; Captain"
+        },
+        "experience": {
+          "flight_crew": "Flight Crew Last 90 Days 257; Flight Crew Total 24500; Flight Crew Type 4015",
+          "air_traffic_control": "Flight Crew Last 90 Days 257; Flight Crew Total 24500; Flight Crew Type 4015"
+        },
+        "human_factors": "Fatigue"
+      }
+    ],
+    "events": {
+      "anomaly": {
+        "aircraft_equipment": "No Specific Anomaly Occurred All Types",
+        "airspace_violation": "No Specific Anomaly Occurred All Types",
+        "atc_issues": "No Specific Anomaly Occurred All Types",
+        "flight_deck_cabin_aircraft_event": "No Specific Anomaly Occurred All Types",
+        "conflict": "No Specific Anomaly Occurred All Types",
+        "deviation_altitude": "No Specific Anomaly Occurred All Types",
+        "deviation_speed": "No Specific Anomaly Occurred All Types",
+        "deviation_track_heading": "No Specific Anomaly Occurred All Types",
+        "deviation_discrepancy_procedural": "No Specific Anomaly Occurred All Types",
+        "ground_excursion": "No Specific Anomaly Occurred All Types",
+        "ground_incursion": "No Specific Anomaly Occurred All Types",
+        "ground_event_encounter": "No Specific Anomaly Occurred All Types",
+        "inflight_event_encounter": "No Specific Anomaly Occurred All Types",
+        "no_specific_anomaly_occurred": "No Specific Anomaly Occurred All Types",
+        "other": "No Specific Anomaly Occurred All Types"
+      },
+      "detector": {
+        "automation": "Person Flight Crew",
+        "person": "Person Flight Crew"
+      },
+      "when_detected": "In-flight",
+      "result": {
+        "general": "General Work Refused",
+        "flight_crew": "General Work Refused",
+        "air_traffic_control": "General Work Refused",
+        "aircraft": "General Work Refused"
+      }
+    },
+    "assessments": {
+      "contributing_factors_situations": "Human Factors; Company Policy",
+      "primary_problem": "Human Factors"
+    },
+    "report": {
+      "narrative": "Enroute I notified crew scheduling of pilot fatigue. Feeling of being tired; irritable; yawning. The reason for the fatigue was the inhumane schedule the automated bidding system awarded for the month of December and January. Basically working 8 days on 1 day off then 6 days on. 1 day off in 15. This schedule caused a chronic fatigue of either sleep and wake times inconsistent. Five long 25 hour plus; boring and fatiguing layovers in both east and west time zones; and 2 all night events. Basically no personal down time. This all being legal because the crew scheduling department designs unproductive low flight hour; long layover trips.  Average was 3.8 hours of flying per day thus there was no 30/7 problem but chronic fatigue because of no time off. Additional cause of the fatigue that morning was a restless nights sleep due to a family situation at home. The problem with pilot fatigue at my air carrier is solely caused by poor scheduling and line construction which has no regard to pilot lifestyle. My air carrier is intentionally oppressing the pilot group trying to suck the life out of them as much as possible; hoping they will quit; to weaken them without regard to safety. Safety was never jeopardized on the flight. I was released from duty and allowed to go home after being gone almost 2 weeks."
+    }
+  },
+  {
+    "_source": {
+      "file": "A320_2010_2026.csv",
+      "row": 9
+    },
+    "acn": "867682",
+    "time": {
+      "date": "201001",
+      "local_time_of_day": "1201-1800"
+    },
+    "place": {
+      "locale_reference": "ZZZZ.Airport",
+      "state_reference": "FO",
+      "altitude": {
+        "agl_single_value": "0"
+      }
+    },
+    "environment": {
+      "flight_conditions": "VMC",
+      "light": "Night"
+    },
+    "aircraft": {
+      "aircraft_operator": "Air Carrier",
+      "make_model": "A320",
+      "crew_size": "2",
+      "operating_under_far_part": "Part 121",
+      "mission": "Passenger",
+      "flight_phase": "Parked",
+      "maintenance_status": {
+        "maintenance_deferred": "Y",
+        "released_for_service": "Y"
+      },
+      "maintenance_items_involved": "Testing; Repair"
+    },
+    "component": {
+      "component": "Hydraulic Syst Pressure/Temp Indication",
+      "manufacturer": "Airbus",
+      "aircraft_reference": "X",
+      "problem": "Malfunctioning"
+    },
+    "person": [
+      {
+        "location_of_person": "Aircraft X",
+        "location_in_aircraft": "Flight Deck",
+        "reporter_organization": "Air Carrier",
+        "asrs_report_number": "867682",
+        "function": {
+          "flight_crew": "Pilot Not Flying; Captain",
+          "air_traffic_control": "Pilot Not Flying; Captain"
+        },
+        "qualification": {
+          "flight_crew": "Flight Crew Air Transport Pilot (ATP)",
+          "air_traffic_control": "Flight Crew Air Transport Pilot (ATP)"
+        },
+        "experience": {
+          "flight_crew": "Flight Crew Last 90 Days 267; Flight Crew Total 13476; Flight Crew Type 3412",
+          "air_traffic_control": "Flight Crew Last 90 Days 267; Flight Crew Total 13476; Flight Crew Type 3412"
+        },
+        "human_factors": "Communication Breakdown; Confusion; Training / Qualification; Troubleshooting",
+        "communication_breakdown_parties": "Party1 Flight Crew; Party1 Maintenance; Party2 Other; Party2 Maintenance"
+      }
+    ],
+    "events": {
+      "anomaly": {
+        "aircraft_equipment": "Aircraft Equipment Problem Critical; Deviation / Discrepancy - Procedural Maintenance; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "airspace_violation": "Aircraft Equipment Problem Critical; Deviation / Discrepancy - Procedural Maintenance; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "atc_issues": "Aircraft Equipment Problem Critical; Deviation / Discrepancy - Procedural Maintenance; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "flight_deck_cabin_aircraft_event": "Aircraft Equipment Problem Critical; Deviation / Discrepancy - Procedural Maintenance; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "conflict": "Aircraft Equipment Problem Critical; Deviation / Discrepancy - Procedural Maintenance; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "deviation_altitude": "Aircraft Equipment Problem Critical; Deviation / Discrepancy - Procedural Maintenance; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "deviation_speed": "Aircraft Equipment Problem Critical; Deviation / Discrepancy - Procedural Maintenance; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "deviation_track_heading": "Aircraft Equipment Problem Critical; Deviation / Discrepancy - Procedural Maintenance; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "deviation_discrepancy_procedural": "Aircraft Equipment Problem Critical; Deviation / Discrepancy - Procedural Maintenance; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "ground_excursion": "Aircraft Equipment Problem Critical; Deviation / Discrepancy - Procedural Maintenance; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "ground_incursion": "Aircraft Equipment Problem Critical; Deviation / Discrepancy - Procedural Maintenance; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "ground_event_encounter": "Aircraft Equipment Problem Critical; Deviation / Discrepancy - Procedural Maintenance; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "inflight_event_encounter": "Aircraft Equipment Problem Critical; Deviation / Discrepancy - Procedural Maintenance; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "no_specific_anomaly_occurred": "Aircraft Equipment Problem Critical; Deviation / Discrepancy - Procedural Maintenance; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "other": "Aircraft Equipment Problem Critical; Deviation / Discrepancy - Procedural Maintenance; Deviation / Discrepancy - Procedural Published Material / Policy"
+      },
+      "detector": {
+        "automation": "Person Flight Crew",
+        "person": "Person Flight Crew"
+      },
+      "when_detected": "Aircraft In Service At Gate",
+      "were_passengers_involved_in_the_event": "N",
+      "result": {
+        "general": "General Release Refused / Aircraft Not Accepted; General Maintenance Action",
+        "flight_crew": "General Release Refused / Aircraft Not Accepted; General Maintenance Action",
+        "air_traffic_control": "General Release Refused / Aircraft Not Accepted; General Maintenance Action",
+        "aircraft": "General Release Refused / Aircraft Not Accepted; General Maintenance Action"
+      }
+    },
+    "assessments": {
+      "contributing_factors_situations": "Logbook Entry; Staffing; Procedure; MEL; Aircraft; Company Policy; Human Factors",
+      "primary_problem": "Company Policy"
+    },
+    "report": {
+      "narrative": "Upon arriving at aircraft; several discrepancies were noted in the A320 condition that required Inspection by Maintenance personnel. Items were put into ACARS per Flight Operations Manual and Maintenance Control advised us via ACARS. Approximately 80 minutes after initial ACARS entry we had a Mechanic show up at aircraft; and then another arrived. As we had five items; the Mechanics took quite some time to address; the most labor intensive was the draining of the Blue hydraulic (HYD) system to put it into limits as prescribed in the Flight Manual. The Mechanics had great difficulty clearing the items as they only had one phone and they had no idea as to its location. They do need to have verbal communication with Maintenance Control to clear items; per our air carrier procedure. When we finally received our Maintenance Release all items were cleared; and specifically Log-2 which reported a pressure Indication from the Blue system (HYD) pump to the RAT on the HYD page; reset Blue HYD pump; Indication normal. (Side note): this item has been reported by the Captain on fully 50% of the aircraft on his current trip alone. Perhaps a Maintenance Alert to figure out why the Pressure switches on the A-320/319 Blue HYD system are all failing is in order. This has been observed multiple times in past few months by Captain. At this time; Captain finally got on the Maintenance phone with Maintenance Control and reported this item as NOT cleared and that at least one Flight Crew member was in the cockpit at all times with the Mechanic staff; advised Maintenance Control this item never was cleared; as described in the Maintenance Release. Maintenance Control said it probably re-occurred. We strongly disagreed stating once again; we never left the cockpit unattended; the item was never repaired; not even for a second. The item was re-opened and the proper deferral procedures carried out. The gate Supervisor was asked why the Maintenance we received was so poor this day and he stated the preferred (Contract Maintenance) company was not available and the gentlemen we were given were the second choice available. It was fairly obvious why. These gentleman Mechanics had very little Airbus knowledge and I question whether or not they should be working on our air carrier aircraft. Obviously if they did not understand an issue; they just said it was done; although obviously not. They had us; the Flight Crew on board to ask for clarification as well as Maintenance Control on the phone; they chose (instead) to say work complete. I think this was not malicious; just a demonstration of lack of knowledge. While it is not the (Flight) crews job to monitor or Supervise supposedly qualified Mechanics; I can't imagine the job these two (Mechanics) would have done without some heavy hand-holding."
+    }
+  },
+  {
+    "_source": {
+      "file": "A320_2010_2026.csv",
+      "row": 10
+    },
+    "acn": "867687",
+    "time": {
+      "date": "201001",
+      "local_time_of_day": "0601-1200"
+    },
+    "place": {
+      "locale_reference": "SFO.Airport",
+      "state_reference": "CA",
+      "altitude": {
+        "agl_single_value": "0"
+      }
+    },
+    "aircraft": {
+      "aircraft_operator": "Air Carrier",
+      "make_model": "A320",
+      "crew_size": "2",
+      "operating_under_far_part": "Part 121",
+      "flight_plan": "IFR",
+      "mission": "Passenger",
+      "flight_phase": "Taxi"
+    },
+    "person": [
+      {
+        "location_of_person": "Aircraft X",
+        "location_in_aircraft": "Flight Deck",
+        "reporter_organization": "Air Carrier",
+        "asrs_report_number": "867687",
+        "function": {
+          "flight_crew": "Captain; Pilot Not Flying",
+          "air_traffic_control": "Captain; Pilot Not Flying"
+        },
+        "qualification": {
+          "flight_crew": "Flight Crew Air Transport Pilot (ATP)",
+          "air_traffic_control": "Flight Crew Air Transport Pilot (ATP)"
+        },
+        "experience": {
+          "flight_crew": "Flight Crew Last 90 Days 150; Flight Crew Total 11640; Flight Crew Type 870",
+          "air_traffic_control": "Flight Crew Last 90 Days 150; Flight Crew Total 11640; Flight Crew Type 870"
+        },
+        "human_factors": "Workload; Confusion; Communication Breakdown",
+        "communication_breakdown_parties": "Party1 Flight Crew; Party2 Ground Personnel"
+      }
+    ],
+    "events": {
+      "anomaly": {
+        "aircraft_equipment": "Deviation / Discrepancy - Procedural Published Material / Policy",
+        "airspace_violation": "Deviation / Discrepancy - Procedural Published Material / Policy",
+        "atc_issues": "Deviation / Discrepancy - Procedural Published Material / Policy",
+        "flight_deck_cabin_aircraft_event": "Deviation / Discrepancy - Procedural Published Material / Policy",
+        "conflict": "Deviation / Discrepancy - Procedural Published Material / Policy",
+        "deviation_altitude": "Deviation / Discrepancy - Procedural Published Material / Policy",
+        "deviation_speed": "Deviation / Discrepancy - Procedural Published Material / Policy",
+        "deviation_track_heading": "Deviation / Discrepancy - Procedural Published Material / Policy",
+        "deviation_discrepancy_procedural": "Deviation / Discrepancy - Procedural Published Material / Policy",
+        "ground_excursion": "Deviation / Discrepancy - Procedural Published Material / Policy",
+        "ground_incursion": "Deviation / Discrepancy - Procedural Published Material / Policy",
+        "ground_event_encounter": "Deviation / Discrepancy - Procedural Published Material / Policy",
+        "inflight_event_encounter": "Deviation / Discrepancy - Procedural Published Material / Policy",
+        "no_specific_anomaly_occurred": "Deviation / Discrepancy - Procedural Published Material / Policy",
+        "other": "Deviation / Discrepancy - Procedural Published Material / Policy"
+      },
+      "detector": {
+        "automation": "Person Flight Crew",
+        "person": "Person Flight Crew"
+      },
+      "when_detected": "Taxi",
+      "were_passengers_involved_in_the_event": "N",
+      "result": {
+        "general": "General None Reported / Taken",
+        "flight_crew": "General None Reported / Taken",
+        "air_traffic_control": "General None Reported / Taken",
+        "aircraft": "General None Reported / Taken"
+      }
+    },
+    "assessments": {
+      "contributing_factors_situations": "Staffing; Human Factors; Company Policy",
+      "primary_problem": "Staffing"
+    },
+    "report": {
+      "narrative": "As we approached our gate; a 'DOGLEG' entry; the first guideman was in position and we followed signals to the turn point. He signaled to second guideman position where no one was placed. First guideman then walked over to that position and eventually lead us in to parking position. This gate is not a single guideman gate and this required me to stop the airplane mid turn or continue without guidance until initial man could walk over. This is not a safe situation and needs to be corrected. I have now twice experienced this at this gate."
+    }
+  },
+  {
+    "_source": {
+      "file": "A320_2010_2026.csv",
+      "row": 11
+    },
+    "acn": "867833",
+    "time": {
+      "date": "201001",
+      "local_time_of_day": "1801-2400"
+    },
+    "place": {
+      "locale_reference": "SCT.TRACON",
+      "state_reference": "CA",
+      "altitude": {
+        "msl_single_value": "3300"
+      }
+    },
+    "environment": {
+      "flight_conditions": "VMC"
+    },
+    "aircraft": {
+      "atc_advisory": "TRACON SCT; Tower SNA",
+      "aircraft_operator": "Air Carrier",
+      "make_model": "A320",
+      "crew_size": "2",
+      "operating_under_far_part": "Part 121",
+      "flight_plan": "IFR",
+      "mission": "Passenger",
+      "flight_phase": "Final Approach",
+      "route_in_use": "Visual Approach",
+      "airspace": "Class C SNA"
+    },
+    "aircraft_2": {
+      "atc_advisory": "TRACON SCT",
+      "make_model": "Cessna Citation Undifferentiated or Other Model"
+    },
+    "person": [
+      {
+        "reporter_organization": "Government",
+        "asrs_report_number": "867833",
+        "function": {
+          "flight_crew": "Approach",
+          "air_traffic_control": "Approach"
+        },
+        "qualification": {
+          "flight_crew": "Air Traffic Control Fully Certified",
+          "air_traffic_control": "Air Traffic Control Fully Certified"
+        },
+        "human_factors": "Situational Awareness"
+      }
+    ],
+    "events": {
+      "anomaly": {
+        "aircraft_equipment": "Aircraft Equipment Problem Critical; Airspace Violation All Types; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "airspace_violation": "Aircraft Equipment Problem Critical; Airspace Violation All Types; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "atc_issues": "Aircraft Equipment Problem Critical; Airspace Violation All Types; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "flight_deck_cabin_aircraft_event": "Aircraft Equipment Problem Critical; Airspace Violation All Types; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "conflict": "Aircraft Equipment Problem Critical; Airspace Violation All Types; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "deviation_altitude": "Aircraft Equipment Problem Critical; Airspace Violation All Types; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "deviation_speed": "Aircraft Equipment Problem Critical; Airspace Violation All Types; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "deviation_track_heading": "Aircraft Equipment Problem Critical; Airspace Violation All Types; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "deviation_discrepancy_procedural": "Aircraft Equipment Problem Critical; Airspace Violation All Types; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "ground_excursion": "Aircraft Equipment Problem Critical; Airspace Violation All Types; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "ground_incursion": "Aircraft Equipment Problem Critical; Airspace Violation All Types; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "ground_event_encounter": "Aircraft Equipment Problem Critical; Airspace Violation All Types; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "inflight_event_encounter": "Aircraft Equipment Problem Critical; Airspace Violation All Types; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "no_specific_anomaly_occurred": "Aircraft Equipment Problem Critical; Airspace Violation All Types; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "other": "Aircraft Equipment Problem Critical; Airspace Violation All Types; Deviation / Discrepancy - Procedural Published Material / Policy"
+      },
+      "detector": {
+        "automation": "Person Air Traffic Control",
+        "person": "Person Air Traffic Control"
+      },
+      "result": {
+        "general": "Air Traffic Control Issued New Clearance",
+        "flight_crew": "Air Traffic Control Issued New Clearance",
+        "air_traffic_control": "Air Traffic Control Issued New Clearance",
+        "aircraft": "Air Traffic Control Issued New Clearance"
+      }
+    },
+    "assessments": {
+      "contributing_factors_situations": "Airspace Structure; Aircraft; Human Factors",
+      "primary_problem": "Human Factors"
+    },
+    "report": {
+      "narrative": "I was working the Tustin Radar position unassisted.  I was conducting visual approaches to SNA Runway 19R with numerous aircraft.  In the area just North of the airport; I own 3000 and below and just to the North of that I own 5000 and below.  My aircraft; on a visual approach; descend from 5000 and must be at 3000 or below before that airspace boundary line.  The Shore/Maverick sector typically has airliner traffic passing Southwest bound just north of the SNA airport descending to 4000 landing at LGB.   An A320 had been cleared for a routine visual approach and communication switched to the tower.  I had previously approved a point-out on a slow-moving Cessna at 3000 from an adjacent sector (Shore/Maverick) to transition through my airspace East to West across my final just north of the airport (SNA).  Simultaneously; I received a hand off from the Shore/Maverick sector on a VFR Citation from the Northwest also landing SNA that was very high and fast.  At the time of the hand off; the Citation was about 15 miles from the airport and it's altitude was approximately 11;500; descending to 5;500; and going approximately 230 knots ground speed and heading Southeast bound. I had also accepted a couple off handoffs on an IFR SNA airliner arrivals from the East from the same sector descending to 6000.  I was concentrating on getting the Citation sequenced with the other traffic when I noticed that the A320 had significantly slowed it's descent and was unusually high; at 3300 about 4 miles from the airport. This placed the aircraft in Shore's/Mavericks's airspace and also in proximity to a LGB arrival that was descending to 4000. This required the shore controller to slow the descent of the LGB jet arrival and turn the Cessna away. SNA tower then called and advised me that the A320 had problems and needed to go around. I assigned a right turn; heading 320; and altitude 2500. The A320 eventually diverted."
+    }
+  },
+  {
+    "_source": {
+      "file": "A320_2010_2026.csv",
+      "row": 12
+    },
+    "acn": "867864",
+    "time": {
+      "date": "201001",
+      "local_time_of_day": "0601-1200"
+    },
+    "place": {
+      "locale_reference": "ZZZ.Airport",
+      "state_reference": "US",
+      "altitude": {
+        "msl_single_value": "5000"
+      }
+    },
+    "environment": {
+      "flight_conditions": "VMC",
+      "light": "Daylight",
+      "ceiling": "CLR"
+    },
+    "aircraft": {
+      "atc_advisory": "TRACON ZZZ2; Tower ZZZ1",
+      "aircraft_operator": "Air Carrier",
+      "make_model": "A320",
+      "crew_size": "2",
+      "operating_under_far_part": "Part 121",
+      "flight_plan": "IFR",
+      "mission": "Passenger",
+      "flight_phase": "Initial Approach",
+      "airspace": "Class C ZZZ"
+    },
+    "component": {
+      "component": "Indicating and Warning - Hydraulics",
+      "aircraft_reference": "X",
+      "problem": "Malfunctioning"
+    },
+    "person": [
+      {
+        "location_of_person": "Aircraft X",
+        "location_in_aircraft": "Flight Deck",
+        "reporter_organization": "Air Carrier",
+        "asrs_report_number": "867864",
+        "function": {
+          "flight_crew": "Pilot Flying; Captain",
+          "air_traffic_control": "Pilot Flying; Captain"
+        },
+        "qualification": {
+          "flight_crew": "Flight Crew Air Transport Pilot (ATP)",
+          "air_traffic_control": "Flight Crew Air Transport Pilot (ATP)"
+        },
+        "experience": {
+          "flight_crew": "Flight Crew Last 90 Days 190; Flight Crew Total 12000; Flight Crew Type 3500",
+          "air_traffic_control": "Flight Crew Last 90 Days 190; Flight Crew Total 12000; Flight Crew Type 3500"
+        },
+        "human_factors": "Communication Breakdown; Distraction; Human-Machine Interface; Time Pressure; Workload",
+        "communication_breakdown_parties": "Party1 Flight Crew; Party2 Dispatch"
+      }
+    ],
+    "events": {
+      "anomaly": {
+        "aircraft_equipment": "Aircraft Equipment Problem Critical; Conflict Airborne Conflict; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "airspace_violation": "Aircraft Equipment Problem Critical; Conflict Airborne Conflict; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "atc_issues": "Aircraft Equipment Problem Critical; Conflict Airborne Conflict; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "flight_deck_cabin_aircraft_event": "Aircraft Equipment Problem Critical; Conflict Airborne Conflict; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "conflict": "Aircraft Equipment Problem Critical; Conflict Airborne Conflict; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "deviation_altitude": "Aircraft Equipment Problem Critical; Conflict Airborne Conflict; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "deviation_speed": "Aircraft Equipment Problem Critical; Conflict Airborne Conflict; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "deviation_track_heading": "Aircraft Equipment Problem Critical; Conflict Airborne Conflict; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "deviation_discrepancy_procedural": "Aircraft Equipment Problem Critical; Conflict Airborne Conflict; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "ground_excursion": "Aircraft Equipment Problem Critical; Conflict Airborne Conflict; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "ground_incursion": "Aircraft Equipment Problem Critical; Conflict Airborne Conflict; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "ground_event_encounter": "Aircraft Equipment Problem Critical; Conflict Airborne Conflict; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "inflight_event_encounter": "Aircraft Equipment Problem Critical; Conflict Airborne Conflict; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "no_specific_anomaly_occurred": "Aircraft Equipment Problem Critical; Conflict Airborne Conflict; Deviation / Discrepancy - Procedural Published Material / Policy",
+        "other": "Aircraft Equipment Problem Critical; Conflict Airborne Conflict; Deviation / Discrepancy - Procedural Published Material / Policy"
+      },
+      "detector": {
+        "automation": "Automation Aircraft Other Automation; Automation Aircraft RA; Person Flight Crew",
+        "person": "Automation Aircraft Other Automation; Automation Aircraft RA; Person Flight Crew"
+      },
+      "when_detected": "In-flight",
+      "were_passengers_involved_in_the_event": "N",
+      "result": {
+        "general": "Flight Crew Diverted; Flight Crew Took Evasive Action; General Maintenance Action",
+        "flight_crew": "Flight Crew Diverted; Flight Crew Took Evasive Action; General Maintenance Action",
+        "air_traffic_control": "Flight Crew Diverted; Flight Crew Took Evasive Action; General Maintenance Action",
+        "aircraft": "Flight Crew Diverted; Flight Crew Took Evasive Action; General Maintenance Action"
+      }
+    },
+    "assessments": {
+      "contributing_factors_situations": "Airport; Company Policy; Human Factors; Aircraft",
+      "primary_problem": "Aircraft"
+    },
+    "report": {
+      "narrative": "Our destination was not a good option due to short runway and the potential for loss of steering and normal braking. It was difficult to insert the new destination due to the overflying of the original destination--FMGC box sequence; etc. Eventually completed; though took longer than normal due to lack of a 'new destination' prompt. I have been on the Bus for a long time and know how to do this--but the FMGC was sequencing as we overflew our original destination and the 'new destination' prompt was not offered despite several attempts.Extensive radio communications with atc in the busy terminal area was very distracting and made for difficult division of duties between flying and configuring the aircraft; reviewing systems and status; etc."
+    }
+  }
+]
