@@ -1,0 +1,37 @@
+[project]
+name = "kg-agentic-poc"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "benjamin.deporte", email = "benjamin.deporte@irt-saintexupery.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "langchain>=1.4.2",
+    "langgraph>=1.2.12",
+    "neo4j>=6.3.1",
+    "numpy>=2.2.6",
+    "pandas>=2.3.3",
+    "pydantic>=2.13.5",
+    "python-dotenv>=1.2.3",
+    "requests>=2.34.2",
+    "streamlit>=1.64.0",
+    "streamlit-agraph>=0.0.45",
+    "tqdm>=4.70.1",
+]
+
+[project.scripts]
+kg-agentic-poc = "kg_agentic_poc:main"
+
+[build-system]
+requires = ["uv_build>=0.12.17,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "black>=26.5.1",
+    "mypy>=2.3.1",
+    "pytest>=9.1.1",
+    "ruff>=0.16.8",
+]
