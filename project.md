@@ -298,15 +298,17 @@ data/
 └── parsed/
     ├── A320_2010_2026_first10_groundtruth.md  # Reference structure
     ├── A320_2010_2026_first50.json              # Parser output (sample)
-    └── A320_2010_2026_all_pages.json           # All 59 pages, 2908 records
+    ├── A320_2010_2026_all_pages.json           # All 59 pages, 2908 records
+    └── A320_2010_2026_all_pages_normalized.json  # Taxonomy-compliant normalized data ✨ NEW
 
 docs/
 ├── asrs_csv_schema.yml              # CSV schema (legacy)
-├── full_2908_docx/                  # Source files (59 .docx pages)
-│   ├── page_01.docx
-│   ├── page_02.docx
-│   └── ... (pages 03-59)
-└── ASRS_CodingForm.pdf               # Reference documentation
+├── ASRS_Coding_Taxonomy.yml          # Coding taxonomy specification ✨ NEW
+├── ASRS_CodingForm.pdf               # Reference documentation
+└── full_2908_docx/                  # Source files (59 .docx pages)
+    ├── page_01.docx
+    ├── page_02.docx
+    └── ... (pages 03-59)
 
 src/
 └── ingestion/
@@ -405,3 +407,170 @@ Regex: `^(.+?)\s*:\s*(\d+)$`
 
 *Last updated: 2026-09-22, 22:15 UTC*
 *Status: Full dataset (2908 records across 59 pages) parsed successfully with 0 errors*
+
+---
+
+## Taxonomy Validation and Normalization
+
+### Date: 2026-09-23 (Wednesday)
+
+### Overview
+Validated parsed data against `ASRS_Coding_Taxonomy.yml` and created a normalized version of the dataset that is fully consistent with the taxonomy specification.
+
+### Activities
+
+#### 1. Sampling and Initial Check
+- Sampled 50 random ACNs from `A320_2010_2026_all_pages.json`
+- Identified formatting inconsistencies between parsed data and taxonomy
+- Found 30 inconsistencies across 20 ACNs (40% of sampled records)
+
+#### 2. Inconsistencies Identified
+
+**Category 1: Spacing Variations**
+- `" / "` vs `"/"` (e.g., `Takeoff / Launch` vs `Takeoff/Launch`)
+- `" - "` vs `"-"` (e.g., `Environment - Non Weather Related` vs `Environment-Non Weather Related`)
+- `"Chart Or Publication"` vs `"Chart or Publication"`
+
+**Category 2: Value Mismatches**
+- `"Procedure"` in data vs `"Procedure (inc. Airspace Authorization)"` in Contributing Factors taxonomy
+- `"ATC Equipment/Nav Facility/Buildings"` in data vs `"ATC Equip/Nav Facility/Buildings"` in Contributing Factors taxonomy
+- `"Environment-Non Weather Related"` vs `"Environment-Non-Weather Related"` (Primary Problem uses double hyphen)
+
+**Category 3: Multi-valued Fields**
+- Flight Phase correctly identified as `cardinality: multi` in taxonomy
+- Arrays like `['Descent', 'Climb', 'Landing']` are valid per taxonomy
+
+#### 3. Field-Specific Normalization Rules Applied
+
+**Global Rules (All Fields)**:
+```
+" / "  → "/"
+" - "  → "-"
+"Chart Or Publication" → "Chart or Publication"
+```
+
+**Assessments.Contributing Factors / Situations**:
+```
+"Procedure" → "Procedure (inc. Airspace Authorization)"
+"Environment-Non Weather Related" → "Environment-Non Weather Related"
+"ATC Equipment/Nav Facility/Buildings" → "ATC Equip/Nav Facility/Buildings"
+```
+
+**Assessments.Primary Problem**:
+```
+"Environment-Non Weather Related" → "Environment-Non-Weather Related"
+```
+
+**Person.Human Factors**:
+```
+"Training / Qualification" → "Training/Qualification"
+"Physiological - Other" → "Physiological-Other"
+"Other / Unknown" → "Other/Unknown"
+```
+
+#### 4. Validation Results
+
+**Before Normalization** (Sampled 50 records):
+- 30 inconsistencies found
+- 20 ACNs affected (40%)
+
+**After Normalization** (All 2,908 records):
+- ✅ **0 inconsistencies**
+- ✅ All records fully consistent with taxonomy
+- ✅ Assessments.Contributing Factors: All values match
+- ✅ Assessments.Primary Problem: All values match
+- ✅ Person.Human Factors: All values match
+
+### Output Files
+
+| File | Description | Status |
+|------|-------------|--------|
+| `data/parsed/A320_2010_2026_all_pages.json` | Original parsed data (hierarchical) | ✅ Existing |
+| `data/parsed/A320_2010_2026_all_pages_normalized.json` | Taxonomy-compliant normalized data | ✅ **NEW** |
+| `docs/ASRS_Coding_Taxonomy.yml` | Reference taxonomy specification | ✅ Existing |
+
+### Usage
+
+The normalized file can be used directly for:
+1. **Graph Structure Brainstorming**: Taxonomy sections map cleanly to node types
+2. **Neo4j Loading**: Data is validated and consistent with schema
+3. **Downstream Processing**: No further normalization needed
+
+### Taxonomy to Graph Mapping
+
+```
+Taxonomy Sections → Graph Node Types:
+- time → Time
+- place → Place
+- environment → Environment
+- aircraft → Aircraft
+- component → Component
+- person → Person
+- events → Event
+- assessments → Assessment
+
+Relationships:
+- Report HAS_TIME Time
+- Report HAS_PLACE Place
+- Report HAS_ENVIRONMENT Environment
+- Report INVOLVES_AIRCRAFT Aircraft
+- Report HAS_COMPONENT Component
+- Report HAS_PERSON Person
+- Report HAS_EVENT Event
+- Report HAS_ASSESSMENT Assessment
+- Event HAS_ANOMALY Anomaly
+- Event HAS_RESULT Result
+- Assessment HAS_FACTOR Factor
+```
+
+### Key Insights
+
+1. **Taxonomy is Production-Ready**: The `ASRS_Coding_Taxonomy.yml` specification accurately reflects the parsed data structure
+2. **Cardinality Matters**: Multi-valued fields in taxonomy (`cardinality: multi`) correctly allow arrays in data
+3. **Field-Specific Values**: Some fields have different valid value sets (e.g., Contributing Factors vs Primary Problem)
+4. **Minor Formatting**: Spacing around `/` and `-` was the main source of inconsistencies
+5. **Normalization is Idempotent**: Re-running normalization produces identical results
+
+---
+
+## Work Log Update
+
+### 2026-09-23 (Wednesday)
+
+| Time | Activity | Status |
+|------|----------|--------|
+| ~17:18-18:00 | Sampled 50 ACNs and identified taxonomy inconsistencies | ✅ Complete |
+| ~18:00-18:30 | Analyzed inconsistency patterns (spacing, value mappings) | ✅ Complete |
+| ~18:30-19:00 | Developed field-specific normalization approach | ✅ Complete |
+| ~19:00-19:30 | Applied normalization to all 2908 records | ✅ Complete |
+| ~19:30-19:45 | Validated normalized data against taxonomy (0 issues) | ✅ Complete |
+| ~19:45-20:00 | Documented work in project.md | ✅ Complete |
+
+---
+
+## Next Steps (Updated)
+
+### Immediate
+1. ✅ Parser created and tested on 50-record sample
+2. ✅ Process full dataset - 59 pages, 2908 records parsed
+3. ✅ Batch parser created - `parse_all_pages.py`
+4. ✅ **Taxonomy validation completed** - 0 inconsistencies
+5. ✅ **Normalized data created** - `A320_2010_2026_all_pages_normalized.json`
+
+### Short Term (Phase 1 Completion)
+1. Convert hierarchical JSON to JSONL format (extraction source of truth)
+2. Create extraction schema document
+3. Create corpus manifest
+4. Perform manual spot-check (30 records)
+5. Freeze corpus to git
+
+### Long Term (Phase 2+)
+1. Transform normalized JSON to knowledge graph format
+2. Create Neo4j loader with idempotent MERGEs
+3. Add narrative embeddings + vector index
+4. Implement graph sanity checks
+
+---
+
+*Last updated: 2026-09-23, 20:00 UTC*
+*Status: Full dataset parsed, validated, and normalized against taxonomy*

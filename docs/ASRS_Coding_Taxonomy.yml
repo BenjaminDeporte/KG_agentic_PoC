@@ -7,7 +7,7 @@
 # Note: single/multi is inferred from the form's Q1/Q markers; spot-check against
 # an actual CSV export before relying on it programmatically.
 
-# analysis of ASRS_CodingForm.pdf by Vibe (22/098/2026)
+# analysis of ASRS_CodingForm.pdf by Vibe (22/09/2026)
 
 time:
   date:
